@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Check, ShieldCheck, Lock, Sparkles, Star } from "lucide-react";
+import { Check, ShieldCheck, Lock, Sparkles, Star, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
@@ -290,7 +290,7 @@ function Index() {
             ))}
           </nav>
           <Button asChild variant="cta" className="rounded-full">
-            <a href="#oferta">Quero conhecer</a>
+            <a href="#oferta">Garantir acesso</a>
           </Button>
         </div>
       </header>
