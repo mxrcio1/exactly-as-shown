@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Check, ShieldCheck, Lock, Sparkles, Star } from "lucide-react";
-import heroImg from "@/assets/hero-escolinha.jpg";
+import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
 import bonusImg from "@/assets/bonus-kit.jpg";
