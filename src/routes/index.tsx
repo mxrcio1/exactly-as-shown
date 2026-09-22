@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Check, ShieldCheck, Lock, Sparkles, Star } from "lucide-react";
+import { Check, ShieldCheck, Lock, Sparkles, Star, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
@@ -290,7 +290,7 @@ function Index() {
             ))}
           </nav>
           <Button asChild variant="cta" className="rounded-full">
-            <a href="#oferta">Quero conhecer</a>
+            <a href="#oferta">Garantir acesso</a>
           </Button>
         </div>
       </header>
@@ -300,21 +300,22 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-sunny px-4 py-1.5 text-sm font-bold text-sunny-foreground">
-              <Sparkles className="size-4" /> Material digital para TEA
+              <Sparkles className="size-4" /> Feito com apoio de especialistas
             </span>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              +1.900 Atividades Lúdicas e Adaptadas Prontas para Imprimir: Ensinar, Estimular e
-              Incluir Crianças Autistas Ficou Simples.
+              +1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
-              Uma biblioteca digital organizada por habilidades, com atividades visuais, simples e
-              adaptadas para crianças autistas. Você baixa, imprime e aplica no mesmo dia.
+              <strong className="text-foreground">Prontas para imprimir e simples de aplicar</strong> no
+              mesmo dia. Uma biblioteca digital organizada por habilidades, com atividades visuais e
+              adaptadas para crianças com autismo (TEA).
             </p>
             <ul className="mt-6 space-y-3">
               {[
                 "Atividades lúdicas com apoio visual",
                 "Arquivos em PDF prontos para imprimir",
                 "Acesso vitalício e organizado por categorias",
+                "Reduza o tempo de tela com atividades que engajam de verdade",
               ].map((p) => (
                 <li key={p} className="flex items-center gap-3 font-medium">
                   <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
@@ -324,12 +325,38 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild variant="hero" size="xl">
-                <a href="#o-que-esta-incluso">Quero garantir o meu acesso</a>
+
+            <div className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
+              <div className="flex -space-x-1.5">
+                {[1, 2, 3, 4].map((n) => (
+                  <span
+                    key={n}
+                    className="grid size-8 place-items-center rounded-full border-2 border-background bg-sunny text-[10px] font-bold text-sunny-foreground"
+                  >
+                    {String.fromCharCode(64 + n)}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1 text-sunny">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <span className="text-xs text-muted-foreground">
+                  <span className="font-semibold text-foreground">[Número real]</span> pais já usam a Escolinha
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+                <a href="#oferta">Quero garantir meu acesso</a>
               </Button>
-              <Button asChild variant="soft" size="xl">
-                <a href="#atividades">veja as atividades ↓</a>
+              <Button asChild variant="outline" size="xl" className="w-full sm:w-auto rounded-full border-primary/30 text-primary hover:bg-primary/5 hover:text-primary">
+                <a href="#atividades" className="gap-2">
+                  ver as atividades <ChevronDown className="size-4" />
+                </a>
               </Button>
             </div>
           </div>
