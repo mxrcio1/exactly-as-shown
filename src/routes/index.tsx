@@ -336,7 +336,7 @@ function Index() {
           <div className="relative">
             <div className="overflow-hidden rounded-3xl shadow-card">
               <img
-                src={heroImg}
+                src={heroImg.url}
                 alt="Professora e criança usando atividades impressas da Escolinha Digital"
                 width={1200}
                 height={1008}
