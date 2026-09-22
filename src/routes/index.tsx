@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Check, ShieldCheck, Lock, Sparkles, Star } from "lucide-react";
-import heroImg from "@/assets/hero-escolinha.jpg";
+import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
 import bonusImg from "@/assets/bonus-kit.jpg";
@@ -336,7 +336,7 @@ function Index() {
           <div className="relative">
             <div className="overflow-hidden rounded-3xl shadow-card">
               <img
-                src={heroImg}
+                src={heroImg.url}
                 alt="Professora e criança usando atividades impressas da Escolinha Digital"
                 width={1200}
                 height={1008}
