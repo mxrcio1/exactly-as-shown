@@ -14,7 +14,7 @@ import bonusImg from "@/assets/bonus-kit.jpg";
 
 const TITLE = "Escolinha Digital | Atividades Educativas Adaptadas para Crianças com Autismo";
 const DESCRIPTION =
-  "Biblioteca digital com mais de 1.500 atividades lúdicas e adaptadas para crianças com TEA, prontas para imprimir e aplicar em casa, na escola ou no consultório.";
+  "Biblioteca digital com mais de 1.900 atividades lúdicas e adaptadas para crianças com TEA, prontas para imprimir e aplicar em casa, na escola ou no consultório.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
