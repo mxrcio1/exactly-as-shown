@@ -12,6 +12,7 @@ import familia1Img from "@/assets/familia-1.png.asset.json";
 import familia2Img from "@/assets/familia-2.png.asset.json";
 import familia3Img from "@/assets/familia-3.png.asset.json";
 import familia4Img from "@/assets/familia-4.png.asset.json";
+import logoImg from "@/assets/logo-escolinha.png.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
 import bonusImg from "@/assets/bonus-kit.jpg";
@@ -276,16 +277,20 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Barra de topo */}
       <div className="bg-gradient-sun px-4 py-2 text-center text-sm font-semibold text-primary-foreground">
-        Condição especial de lançamento na Escolinha Digital
+        OFERTA DE LANÇAMENTO: 80% de desconto só hoje
       </div>
 
       {/* Cabeçalho */}
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <a href="#top" className="flex items-center gap-2">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-lg text-primary-foreground">
-              ✏️
-            </span>
+            <img
+              src={logoImg.url}
+              alt="Escolinha Digital"
+              width={36}
+              height={36}
+              className="size-9 rounded-xl bg-white object-contain"
+            />
             <span className="font-display text-lg font-extrabold">Escolinha Digital</span>
           </a>
           <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground lg:flex">
@@ -306,7 +311,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-sunny px-4 py-1.5 text-sm font-bold text-sunny-foreground">
-              <Sparkles className="size-4" /> Feito com apoio de especialistas
+              <Sparkles className="size-4" /> Organizado por habilidades e categorias
             </span>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
               +1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas
