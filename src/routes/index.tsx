@@ -162,7 +162,7 @@ const rotina = [
 
 const inclusos = [
   {
-    titulo: "+1.500 atividades adaptadas",
+    titulo: "+1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas",
     descricao:
       "Acervo completo para estimular habilidades cognitivas, motoras e comportamentais.",
   },
@@ -212,7 +212,7 @@ const bonusList = [
 ];
 
 const itensOferta = [
-  "+1.500 atividades lúdicas e adaptadas",
+  "+1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas",
   "Acesso imediato e vitalício à plataforma",
   "Comunidade exclusiva de professores",
   "Suporte para dúvidas",
@@ -231,7 +231,7 @@ const faq = [
   },
   {
     pergunta: "Quantas atividades o kit tem?",
-    resposta: "São mais de 1.500 atividades organizadas por categorias, além dos bônus.",
+    resposta: "São mais de 1.900 atividades organizadas por categorias, além dos bônus.",
   },
   {
     pergunta: "Posso usar em sala de aula e também em casa?",
@@ -423,7 +423,7 @@ function Index() {
           ))}
         </div>
         <p className="mt-6 text-center text-muted-foreground">
-          E essas são só algumas das mais de 1.500 atividades da Escolinha Digital.
+          E essas são só algumas das mais de 1.900 atividades da Escolinha Digital.
         </p>
       </Section>
 
