@@ -6,7 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Check, ShieldCheck, Lock, Sparkles, Star, ChevronDown } from "lucide-react";
+import {
+  Apple,
+  Brain,
+  Check,
+  ChevronDown,
+  House,
+  Lock,
+  ShieldCheck,
+  Sparkles,
+  Star,
+} from "lucide-react";
 import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
 import familia1Img from "@/assets/familia-1.png.asset.json";
 import familia2Img from "@/assets/familia-2.png.asset.json";
@@ -50,20 +60,20 @@ const menu = [
 
 const publicos = [
   {
-    publico: "Professores e professoras",
-    icone: "🍎",
+    publico: "Professores",
+    Icone: Apple,
     texto:
-      "Chega de passar a noite adaptando material. Tenha atividades prontas para planejar a semana em minutos.",
+      "Chega de passar a noite adaptando material. Adapte a aula em minutos, com atividades prontas para aplicar.",
   },
   {
     publico: "Pais e responsáveis",
-    icone: "🏡",
+    Icone: House,
     texto:
       "Uma rotina leve de estímulo em casa, com atividades curtas e fáceis de aplicar, sem precisar ser especialista.",
   },
   {
     publico: "Terapeutas e profissionais de apoio",
-    icone: "🧠",
+    Icone: Brain,
     texto:
       "Um acervo variado para complementar sessões e sugerir tarefas para a família continuar em casa.",
   },
@@ -72,7 +82,7 @@ const publicos = [
 const passos = [
   {
     numero: 1,
-    titulo: "Entre na plataforma",
+    titulo: "Receba seu acesso",
     texto:
       "Receba o acesso por e-mail logo após a confirmação e encontre todo o material em um só lugar.",
   },
@@ -277,7 +287,7 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Barra de topo */}
       <div className="bg-gradient-sun px-4 py-2 text-center text-sm font-semibold text-primary-foreground">
-        OFERTA DE LANÇAMENTO: 80% de desconto só hoje
+        OFERTA DE LANÇAMENTO: 80% de desconto somente hoje, 22/09/2026
       </div>
 
       {/* Cabeçalho */}
@@ -393,8 +403,8 @@ function Index() {
         <div className="grid gap-6 md:grid-cols-3">
           {publicos.map((c) => (
             <div key={c.publico} className="rounded-3xl bg-card p-7 shadow-soft">
-              <div className="grid size-12 place-items-center rounded-2xl bg-secondary text-2xl">
-                {c.icone}
+              <div className="grid size-12 place-items-center rounded-2xl bg-secondary text-primary">
+                <c.Icone aria-hidden="true" className="size-6" strokeWidth={2} />
               </div>
               <h3 className="mt-4 text-lg font-bold">{c.publico}</h3>
               <p className="mt-2 text-muted-foreground">{c.texto}</p>
@@ -406,13 +416,17 @@ function Index() {
       {/* Como funciona */}
       <Section
         id="como-funciona"
-        title="Do acesso à primeira atividade em 3 passos"
+        title="Comece a usar em 3 passos simples"
         tone="muted"
       >
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="relative grid gap-6 md:grid-cols-3">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-[3.0625rem] left-[3.125rem] z-20 hidden h-0.5 w-[calc(66.6667%+1rem)] bg-accent/50 md:block"
+          />
           {passos.map((p) => (
             <div key={p.numero} className="relative rounded-3xl bg-card p-7 shadow-soft">
-              <span className="grid size-11 place-items-center rounded-full bg-primary font-display text-lg font-extrabold text-primary-foreground">
+              <span className="relative z-30 grid size-11 place-items-center rounded-full bg-accent font-display text-lg font-extrabold text-accent-foreground ring-4 ring-card">
                 {p.numero}
               </span>
               <h3 className="mt-4 text-lg font-bold">{p.titulo}</h3>
