@@ -326,10 +326,10 @@ function Index() {
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="xl">
-                <a href="#o-que-esta-incluso">Ver o que está incluso</a>
+                <a href="#o-que-esta-incluso">Quero garantir o meu acesso</a>
               </Button>
               <Button asChild variant="soft" size="xl">
-                <a href="#atividades">Ver as atividades</a>
+                <a href="#atividades">veja as atividades ↓</a>
               </Button>
             </div>
           </div>
