@@ -14,7 +14,7 @@ import bonusImg from "@/assets/bonus-kit.jpg";
 
 const TITLE = "Escolinha Digital | Atividades Educativas Adaptadas para Crianças com Autismo";
 const DESCRIPTION =
-  "Biblioteca digital com mais de 1.500 atividades lúdicas e adaptadas para crianças com TEA, prontas para imprimir e aplicar em casa, na escola ou no consultório.";
+  "Biblioteca digital com mais de 1.900 atividades lúdicas e adaptadas para crianças com TEA, prontas para imprimir e aplicar em casa, na escola ou no consultório.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -303,7 +303,8 @@ function Index() {
               <Sparkles className="size-4" /> Material digital para TEA
             </span>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              Mais de 1.500 atividades prontas para ensinar, estimular e incluir
+              +1.900 Atividades Lúdicas e Adaptadas Prontas para Imprimir: Ensinar, Estimular e
+              Incluir Crianças Autistas Ficou Simples.
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
               Uma biblioteca digital organizada por habilidades, com atividades visuais, simples e
