@@ -8,6 +8,10 @@ import {
 } from "@/components/ui/accordion";
 import { Check, ShieldCheck, Lock, Sparkles, Star, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
+import familia1Img from "@/assets/familia-1.png.asset.json";
+import familia2Img from "@/assets/familia-2.png.asset.json";
+import familia3Img from "@/assets/familia-3.png.asset.json";
+import familia4Img from "@/assets/familia-4.png.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
 import bonusImg from "@/assets/bonus-kit.jpg";
@@ -32,6 +36,8 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT_URL = "";
 const cta = CHECKOUT_URL || "#oferta";
+
+const familiasImgs = [familia1Img, familia2Img, familia3Img, familia4Img];
 
 const menu = [
   { rotulo: "Para quem é", ancora: "#para-quem-e" },
@@ -328,13 +334,15 @@ function Index() {
 
             <div className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
               <div className="flex -space-x-1.5">
-                {[1, 2, 3, 4].map((n) => (
-                  <span
-                    key={n}
-                    className="grid size-8 place-items-center rounded-full border-2 border-background bg-sunny text-[10px] font-bold text-sunny-foreground"
-                  >
-                    {String.fromCharCode(64 + n)}
-                  </span>
+                {familiasImgs.map((imagem, index) => (
+                  <img
+                    key={imagem.url}
+                    src={imagem.url}
+                    alt={`Pessoa que usa a Escolinha Digital ${index + 1}`}
+                    width={64}
+                    height={64}
+                    className="size-8 rounded-full border-2 border-background object-cover"
+                  />
                 ))}
               </div>
               <div className="flex flex-col">
@@ -344,7 +352,8 @@ function Index() {
                   ))}
                 </div>
                 <span className="text-xs text-muted-foreground">
-                  <span className="font-semibold text-foreground">[Número real]</span> pais já usam a Escolinha
+                  <span className="font-semibold text-foreground">Mais de 2.500 famílias e professores</span>{" "}
+                  já usam a Escolinha
                 </span>
               </div>
             </div>
