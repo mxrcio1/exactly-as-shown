@@ -174,10 +174,6 @@ const inclusos = [
     titulo: "Acesso vitalício",
     descricao: "Pague uma vez e acesse sempre, com o material organizado por categorias.",
   },
-  {
-    titulo: "Comunidade de professores",
-    descricao: "Grupo fechado para trocar experiências e compartilhar atividades adaptadas.",
-  },
 ];
 
 const bonusList = [
@@ -190,8 +186,6 @@ const bonusList = [
 const itensOferta = [
   "+1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas",
   "Acesso imediato e vitalício à plataforma",
-  "Comunidade exclusiva de professores",
-  "Suporte para dúvidas",
   "Bônus 1: Mega Pacote com +1000 Moldes de EVA",
   "Bônus 2: Kit de Medalhas de Reconhecimento",
   "Bônus 3: +10 Jogos Inclusivos",
@@ -499,11 +493,11 @@ function Index() {
 
       {/* O que está incluso */}
       <Section id="o-que-esta-incluso" title="Tudo o que você recebe" tone="muted">
-        <div className="grid gap-5 md:grid-cols-6">
-          {inclusos.map((i, idx) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {inclusos.map((i) => (
             <div
               key={i.titulo}
-              className={`rounded-3xl bg-card p-6 shadow-soft md:col-span-3 ${idx < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+              className="flex h-full flex-col rounded-3xl bg-card p-6 shadow-soft"
             >
               <span className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground">
                 <Check className="size-5" />
