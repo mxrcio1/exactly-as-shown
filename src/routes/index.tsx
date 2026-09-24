@@ -240,7 +240,7 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Barra de topo */}
       <div className="bg-gradient-sun px-4 py-2 text-center text-sm font-semibold text-primary-foreground">
-        OFERTA DE LANÇAMENTO: 80% de desconto só hoje na Escolinha Digital
+        OFERTA DE LANÇAMENTO: 90% de desconto só hoje na Escolinha Digital
       </div>
 
       {/* Cabeçalho */}
