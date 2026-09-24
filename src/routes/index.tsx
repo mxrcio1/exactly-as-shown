@@ -581,7 +581,7 @@ function Index() {
             </ul>
             <div className="mt-6">
               <p className="text-sm text-muted-foreground line-through">R$ 97,00</p>
-              <p className="font-display text-4xl font-extrabold text-primary">R$ 19,90</p>
+              <p className="font-display text-4xl font-extrabold text-primary">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">ou 4x de R$ 5,77</p>
             </div>
             <Button asChild variant="cta" size="xl" className="mt-6 w-full">
