@@ -177,19 +177,19 @@ const inclusos = [
 ];
 
 const bonusList = [
-  { numero: 1, valor: "39,90", titulo: "Mega Pacote com +1000 Moldes de EVA", descricao: "Moldes prontos para criar materiais, painéis e recursos visuais." },
-  { numero: 2, valor: "19,90", titulo: "Kit de Medalhas de Reconhecimento", descricao: "Medalhas para celebrar cada conquista e motivar a criança." },
-  { numero: 3, valor: "19,90", titulo: "+10 Jogos Inclusivos", descricao: "Jogos para aprender brincando, em grupo ou individualmente." },
-  { numero: 4, valor: "9,90", titulo: "Guia de Adaptação de Atividades", descricao: "Passo a passo para adaptar outras atividades às necessidades de cada aluno." },
+  { numero: 1, valor: "39,90", titulo: "101 Brincadeiras e Atividades para Crianças no TEA", descricao: "Ideias de brincadeiras e atividades para estimular o desenvolvimento de crianças no TEA." },
+  { numero: 2, valor: "19,90", titulo: "Caderno de Estímulos e Atividades Adaptadas", descricao: "Atividades adaptadas para trabalhar diferentes habilidades de forma prática e lúdica." },
+  { numero: 3, valor: "19,90", titulo: "Mega Pacote de 300 Atividades Especializadas", descricao: "Um grande pacote de atividades especializadas para ampliar suas opções de aplicação." },
+  { numero: 4, valor: "9,90", titulo: "Kit Jogos Educativos Adaptados", descricao: "Jogos educativos adaptados para aprender brincando e estimular diferentes habilidades." },
 ];
 
 const itensOferta = [
   "+1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas",
   "Acesso imediato e vitalício à plataforma",
-  "Bônus 1: Mega Pacote com +1000 Moldes de EVA",
-  "Bônus 2: Kit de Medalhas de Reconhecimento",
-  "Bônus 3: +10 Jogos Inclusivos",
-  "Bônus 4: Guia de Adaptação de Atividades",
+  "Bônus 1: 101 Brincadeiras e Atividades para Crianças no TEA",
+  "Bônus 2: Caderno de Estímulos e Atividades Adaptadas",
+  "Bônus 3: Mega Pacote de 300 Atividades Especializadas",
+  "Bônus 4: Kit Jogos Educativos Adaptados",
   "+ 8 bônus surpresa",
 ];
 
