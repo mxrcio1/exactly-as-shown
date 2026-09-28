@@ -196,7 +196,7 @@ const faq = [
   {
     pergunta: "Como vou receber o material?",
     resposta:
-      "Logo após a confirmação do pagamento, você recebe por e-mail o acesso à plataforma, onde todo o material fica disponível.",
+      "A Escolinha Digital é totalmente digital. Após a confirmação do pagamento, você receberá as instruções de acesso pelo seu e-mail para acessar o portal de atividades de forma rápida e prática.",
   },
   {
     pergunta: "Quantas atividades o kit tem?",
@@ -210,7 +210,7 @@ const faq = [
   {
     pergunta: "O material segue a BNCC?",
     resposta:
-      "[Responda de acordo com a realidade do seu material. Só afirme alinhamento à BNCC se ele realmente existir.]",
+      "Sim. Os materiais são desenvolvidos para apoiar o processo de ensino e aprendizagem, com atividades educativas e adaptadas para diferentes necessidades.",
   },
   {
     pergunta: "O acesso é mensal ou vitalício?",
