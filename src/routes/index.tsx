@@ -269,38 +269,52 @@ function Index() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section id="top" className="bg-gradient-hero">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-2 lg:py-20">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-sunny px-4 py-1.5 text-sm font-bold text-sunny-foreground">
+      {/* Hero — novo layout: imagem primeiro no mobile e à direita no desktop */}
+      <section id="top" className="bg-gradient-hero px-4 py-8 md:py-16">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 md:grid md:grid-cols-2 md:items-center md:gap-10">
+          {/* IMAGEM: primeiro no mobile, à direita no desktop */}
+          <div className="order-1 md:order-2">
+            <img
+              src={heroImg.url}
+              alt="+1900 Atividades para Autismo"
+              width={1200}
+              height={1008}
+              className="w-full rounded-3xl shadow-lg"
+            />
+          </div>
+
+          {/* TEXTO + BOTÕES: depois da imagem no mobile, à esquerda no desktop */}
+          <div className="order-2 flex flex-col gap-4 md:order-1">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-sunny px-4 py-1.5 text-sm font-bold text-sunny-foreground">
               <Sparkles className="size-4" /> Organizado por habilidades e categorias
             </span>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              +1.900 Atividades para Ensinar, Estimular e Incluir Crianças Autistas
+
+            <h1 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              Atividades para Ensinar, Estimular e Incluir Crianças Autistas
             </h1>
-            <p className="mt-5 text-lg text-muted-foreground">
-              <strong className="text-foreground">Prontas para imprimir e simples de aplicar</strong> no
-              mesmo dia. Uma biblioteca digital organizada por habilidades, com atividades visuais e
-              adaptadas para crianças com autismo (TEA).
+
+            <p className="text-lg text-muted-foreground">
+              <strong className="text-foreground">Prontas para imprimir e simples de aplicar...</strong>
             </p>
-            <ul className="mt-6 space-y-3">
+
+            <ul className="space-y-3">
               {[
                 "Atividades lúdicas com apoio visual",
-                "Arquivos em PDF prontos para imprimir",
-                "Acesso vitalício e organizado por categorias",
-                "Reduza o tempo de tela com atividades que engajam de verdade",
-              ].map((p) => (
-                <li key={p} className="flex items-center gap-3 font-medium">
+                "PDFs prontos para imprimir e aplicar",
+                "Mais de 1.900 atividades organizadas por categorias",
+                "Acesso vitalício ao material",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 font-medium">
                   <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
                     <Check className="size-4" />
                   </span>
-                  {p}
+                  {item}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
+            {/* prova social: avatares + 2.500 famílias */}
+            <div className="inline-flex w-fit items-center gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
               <div className="flex -space-x-1.5">
                 {familiasImgs.map((imagem, index) => (
                   <img
@@ -326,26 +340,20 @@ function Index() {
               </div>
             </div>
 
-            <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-3 pt-1 sm:flex-row">
               <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
                 <a href="#oferta">Quero garantir meu acesso</a>
               </Button>
-              <Button asChild variant="outline" size="xl" className="w-full sm:w-auto rounded-full border-primary/30 text-primary hover:bg-primary/5 hover:text-primary">
+              <Button
+                asChild
+                variant="outline"
+                size="xl"
+                className="w-full rounded-full border-primary/30 text-primary hover:bg-primary/5 hover:text-primary sm:w-auto"
+              >
                 <a href="#atividades" className="gap-2">
                   ver as atividades <ChevronDown className="size-4" />
                 </a>
               </Button>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl shadow-card">
-              <img
-                src={heroImg.url}
-                alt="Professora e criança usando atividades impressas da Escolinha Digital"
-                width={1200}
-                height={1008}
-                className="h-full w-full object-cover"
-              />
             </div>
           </div>
         </div>
@@ -367,11 +375,7 @@ function Index() {
       </Section>
 
       {/* Como funciona */}
-      <Section
-        id="como-funciona"
-        title="Comece a usar em 3 passos simples"
-        tone="muted"
-      >
+      <Section id="como-funciona" title="Comece a usar em 3 passos simples" tone="muted">
         <div className="relative grid gap-6 md:grid-cols-3">
           <div
             aria-hidden="true"
@@ -390,10 +394,7 @@ function Index() {
       </Section>
 
       {/* Áreas de desenvolvimento */}
-      <Section
-        title="Atividades organizadas por área de desenvolvimento"
-        subtitle="Cada categoria reúne exercícios com linguagem simples e estímulos visuais claros."
-      >
+      <Section title="Atividades organizadas por área de desenvolvimento" subtitle="Cada categoria reúne exercícios com linguagem simples e estímulos visuais claros.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categorias.map((c) => (
             <a
@@ -406,10 +407,7 @@ function Index() {
                   Mais buscada
                 </span>
               )}
-              <span
-                className="grid size-12 place-items-center rounded-full"
-                style={{ backgroundColor: c.cor.bg, color: c.cor.fg }}
-              >
+              <span className="grid size-12 place-items-center rounded-full" style={{ backgroundColor: c.cor.bg, color: c.cor.fg }}>
                 <c.Icone aria-hidden="true" className="size-6" strokeWidth={2} />
               </span>
               <h3 className="mt-3 font-bold">{c.nome}</h3>
@@ -423,12 +421,7 @@ function Index() {
       </Section>
 
       {/* Galeria */}
-      <Section
-        id="atividades"
-        title="Espie algumas páginas do material"
-        subtitle="Mais de 1.900 atividades como essas, organizadas por categoria"
-        tone="muted"
-      >
+      <Section id="atividades" title="Espie algumas páginas do material" subtitle="Mais de 1.900 atividades como essas, organizadas por categoria" tone="muted">
         <div id="paginas" className="scroll-mt-24 overflow-hidden rounded-3xl shadow-card">
           <img
             src={atividadesImg}
@@ -442,27 +435,17 @@ function Index() {
         <div className="mt-14 rounded-3xl bg-secondary/60 px-4 py-8">
           <div className="flex flex-wrap justify-center gap-3">
             {galeria.map((g) => (
-              <a
-                key={g.nome}
-                href="#paginas"
-                className="rounded-full px-4 py-2 text-sm font-semibold shadow-soft transition-transform hover:-translate-y-0.5"
-                style={{ backgroundColor: g.cor.bg, color: g.cor.fg }}
-              >
+              <a key={g.nome} href="#paginas" className="rounded-full px-4 py-2 text-sm font-semibold shadow-soft transition-transform hover:-translate-y-0.5" style={{ backgroundColor: g.cor.bg, color: g.cor.fg }}>
                 {g.nome}
               </a>
             ))}
           </div>
-          <p className="mt-6 text-center text-muted-foreground">
-            E essas são só algumas das mais de 1.900 atividades da Escolinha Digital.
-          </p>
+          <p className="mt-6 text-center text-muted-foreground">E essas são só algumas das mais de 1.900 atividades da Escolinha Digital.</p>
         </div>
       </Section>
 
       {/* Um dia com a escolinha */}
-      <Section
-        title="Como a Escolinha Digital cabe na sua rotina"
-        subtitle="Uma sugestão de uso simples, no ritmo de cada criança."
-      >
+      <Section title="Como a Escolinha Digital cabe na sua rotina" subtitle="Uma sugestão de uso simples, no ritmo de cada criança.">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <ol className="relative space-y-7 border-l-2 border-dashed border-primary/30 pl-8">
             {rotina.map((r) => (
@@ -479,14 +462,7 @@ function Index() {
             ))}
           </ol>
           <div className="overflow-hidden rounded-3xl shadow-card">
-            <img
-              src={rotinaImg}
-              alt="Criança fazendo uma atividade impressa com a mãe"
-              loading="lazy"
-              width={1024}
-              height={1024}
-              className="w-full object-cover"
-            />
+            <img src={rotinaImg} alt="Criança fazendo uma atividade impressa com a mãe" loading="lazy" width={1024} height={1024} className="w-full object-cover" />
           </div>
         </div>
       </Section>
@@ -495,13 +471,8 @@ function Index() {
       <Section id="o-que-esta-incluso" title="Tudo o que você recebe" tone="muted">
         <div className="grid gap-5 md:grid-cols-2">
           {inclusos.map((i) => (
-            <div
-              key={i.titulo}
-              className="flex h-full flex-col rounded-3xl bg-card p-6 shadow-soft"
-            >
-              <span className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Check className="size-5" />
-              </span>
+            <div key={i.titulo} className="flex h-full flex-col rounded-3xl bg-card p-6 shadow-soft">
+              <span className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground"><Check className="size-5" /></span>
               <h3 className="mt-4 font-bold">{i.titulo}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{i.descricao}</p>
             </div>
@@ -509,74 +480,40 @@ function Index() {
         </div>
       </Section>
 
-
       {/* Bônus */}
-      <Section
-        id="bonus"
-        title="Bônus que acompanham a Escolinha Digital"
-        subtitle="Recursos extras para deixar suas aulas mais atrativas, dinâmicas e inclusivas."
-      >
+      <Section id="bonus" title="Bônus que acompanham a Escolinha Digital" subtitle="Recursos extras para deixar suas aulas mais atrativas, dinâmicas e inclusivas.">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="overflow-hidden rounded-3xl shadow-card">
-            <img
-              src={bonusImg}
-              alt="Moldes de EVA, medalhas e jogos inclusivos"
-              loading="lazy"
-              width={1200}
-              height={800}
-              className="w-full object-cover"
-            />
+            <img src={bonusImg} alt="Moldes de EVA, medalhas e jogos inclusivos" loading="lazy" width={1200} height={800} className="w-full object-cover" />
           </div>
           <div className="space-y-4">
             {bonusList.map((b) => (
               <div key={b.numero} className="flex gap-4 rounded-2xl bg-card p-5 shadow-soft">
-                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sunny font-display font-extrabold text-sunny-foreground">
-                  {b.numero}
-                </span>
+                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sunny font-display font-extrabold text-sunny-foreground">{b.numero}</span>
                 <div>
                   <h3 className="font-bold">{b.titulo}</h3>
                   <p className="text-sm text-muted-foreground">{b.descricao}</p>
-                  <p className="mt-1 text-sm">
-                    de <span className="text-muted-foreground line-through">R$ {b.valor}</span> por{" "}
-                    <span className="font-extrabold text-accent">GRÁTIS</span>
-                  </p>
+                  <p className="mt-1 text-sm">de <span className="text-muted-foreground line-through">R$ {b.valor}</span> por <span className="font-extrabold text-accent">GRÁTIS</span></p>
                 </div>
               </div>
             ))}
             <div className="rounded-2xl border-2 border-dashed border-primary/40 p-5 text-center">
               <h3 className="font-display font-extrabold">+ 8 bônus surpresa</h3>
-              <p className="text-sm text-muted-foreground">
-                Liberados somente após a confirmação da compra.
-              </p>
+              <p className="text-sm text-muted-foreground">Liberados somente após a confirmação da compra.</p>
             </div>
           </div>
         </div>
       </Section>
 
       {/* Oferta */}
-      <Section
-        id="oferta"
-        title="Leve a Escolinha Digital para a sua rotina"
-        subtitle="Pagamento único, sem mensalidade."
-        tone="muted"
-      >
+      <Section id="oferta" title="Leve a Escolinha Digital para a sua rotina" subtitle="Pagamento único, sem mensalidade." tone="muted">
         <div className="mx-auto grid max-w-4xl gap-0 overflow-hidden rounded-3xl bg-card shadow-card md:grid-cols-2">
-          <img
-            src={ofertaImg}
-            alt="Kit Escolinha Digital Completo"
-            loading="lazy"
-            width={1200}
-            height={912}
-            className="h-full w-full object-cover"
-          />
+          <img src={ofertaImg} alt="Kit Escolinha Digital Completo" loading="lazy" width={1200} height={912} className="h-full w-full object-cover" />
           <div className="p-7">
             <h3 className="font-display text-xl font-extrabold">Kit Escolinha Digital Completo</h3>
             <ul className="mt-4 space-y-2 text-sm">
               {itensOferta.map((i) => (
-                <li key={i} className="flex gap-2">
-                  <Check className="mt-0.5 size-4 shrink-0 text-accent" />
-                  <span>{i}</span>
-                </li>
+                <li key={i} className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-accent" /><span>{i}</span></li>
               ))}
             </ul>
             <div className="mt-6">
@@ -584,22 +521,12 @@ function Index() {
               <p className="font-display text-4xl font-extrabold text-primary">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">ou 4x de R$ 2,50</p>
             </div>
-            <Button asChild variant="cta" size="xl" className="mt-6 w-full">
-              <a href={cta}>Quero a Escolinha Digital</a>
-            </Button>
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              Pagamento único. Acesso imediato e vitalício.
-            </p>
+            <Button asChild variant="cta" size="xl" className="mt-6 w-full"><a href={cta}>Quero a Escolinha Digital</a></Button>
+            <p className="mt-3 text-center text-xs text-muted-foreground">Pagamento único. Acesso imediato e vitalício.</p>
             <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs font-semibold text-muted-foreground">
-              <span className="flex items-center gap-1">
-                <Lock className="size-3.5" /> Compra segura
-              </span>
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="size-3.5" /> Privacidade protegida
-              </span>
-              <span className="flex items-center gap-1">
-                <Star className="size-3.5" /> Garantia de 7 dias
-              </span>
+              <span className="flex items-center gap-1"><Lock className="size-3.5" /> Compra segura</span>
+              <span className="flex items-center gap-1"><ShieldCheck className="size-3.5" /> Privacidade protegida</span>
+              <span className="flex items-center gap-1"><Star className="size-3.5" /> Garantia de 7 dias</span>
             </div>
           </div>
         </div>
@@ -608,13 +535,8 @@ function Index() {
       {/* Garantia */}
       <Section title="Garantia incondicional de 7 dias">
         <div className="mx-auto max-w-2xl rounded-3xl bg-card p-8 text-center shadow-soft">
-          <span className="mx-auto grid size-16 place-items-center rounded-full bg-accent text-accent-foreground">
-            <ShieldCheck className="size-8" />
-          </span>
-          <p className="mt-4 text-muted-foreground">
-            Você pode testar a Escolinha Digital com tranquilidade. Se em até 7 dias sentir que o
-            material não é para você, devolvemos o valor pago.
-          </p>
+          <span className="mx-auto grid size-16 place-items-center rounded-full bg-accent text-accent-foreground"><ShieldCheck className="size-8" /></span>
+          <p className="mt-4 text-muted-foreground">Você pode testar a Escolinha Digital com tranquilidade. Se em até 7 dias sentir que o material não é para você, devolvemos o valor pago.</p>
         </div>
       </Section>
 
@@ -623,20 +545,11 @@ function Index() {
         <div className="grid gap-5 md:grid-cols-3">
           {depoimentos.map((d, i) => (
             <div key={i} className="rounded-3xl bg-card p-6 shadow-soft">
-              <div className="flex gap-1 text-sunny">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="size-4 fill-current" />
-                ))}
-              </div>
+              <div className="flex gap-1 text-sunny">{Array.from({ length: 5 }).map((_, s) => <Star key={s} className="size-4 fill-current" />)}</div>
               <p className="mt-3 text-muted-foreground">[Depoimento real, com autorização]</p>
               <div className="mt-4 flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">
-                  ?
-                </span>
-                <div className="text-sm">
-                  <p className="font-bold">{d.nome}</p>
-                  <p className="text-muted-foreground">{d.perfil}</p>
-                </div>
+                <span className="grid size-10 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">?</span>
+                <div className="text-sm"><p className="font-bold">{d.nome}</p><p className="text-muted-foreground">{d.perfil}</p></div>
               </div>
             </div>
           ))}
@@ -649,9 +562,7 @@ function Index() {
           <Accordion type="single" collapsible>
             {faq.map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left font-display font-bold">
-                  {f.pergunta}
-                </AccordionTrigger>
+                <AccordionTrigger className="text-left font-display font-bold">{f.pergunta}</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">{f.resposta}</AccordionContent>
               </AccordionItem>
             ))}
@@ -662,16 +573,9 @@ function Index() {
       {/* Chamada final */}
       <section className="bg-gradient-sun px-4 py-16 text-center text-primary-foreground">
         <div className="mx-auto max-w-2xl">
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            Sua próxima atividade está a um clique de distância
-          </h2>
-          <p className="mt-4 opacity-90">
-            Junte-se à Escolinha Digital e tenha um acervo pronto para tornar a rotina mais leve e o
-            aprendizado mais inclusivo.
-          </p>
-          <Button asChild size="xl" variant="soft" className="mt-8">
-            <a href={cta}>Quero a Escolinha Digital</a>
-          </Button>
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Sua próxima atividade está a um clique de distância</h2>
+          <p className="mt-4 opacity-90">Junte-se à Escolinha Digital e tenha um acervo pronto para tornar a rotina mais leve e o aprendizado mais inclusivo.</p>
+          <Button asChild size="xl" variant="soft" className="mt-8"><a href={cta}>Quero a Escolinha Digital</a></Button>
         </div>
       </section>
 
@@ -679,20 +583,10 @@ function Index() {
       <footer className="border-t border-border bg-background px-4 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center">
           <p className="font-display text-lg font-extrabold">Escolinha Digital</p>
-          <p className="text-sm text-muted-foreground">
-            Aprender brincando, no ritmo de cada criança.
-          </p>
-          <nav className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground">
-            <span>Termos de uso</span>
-            <span>Política de privacidade</span>
-            <span>Contato</span>
-          </nav>
-          <p className="max-w-xl text-xs text-muted-foreground">
-            Material educativo de apoio. Não substitui acompanhamento profissional.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            © 2026 Escolinha Digital. Todos os direitos reservados.
-          </p>
+          <p className="text-sm text-muted-foreground">Aprender brincando, no ritmo de cada criança.</p>
+          <nav className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground"><span>Termos de uso</span><span>Política de privacidade</span><span>Contato</span></nav>
+          <p className="max-w-xl text-xs text-muted-foreground">Material educativo de apoio. Não substitui acompanhamento profissional.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Escolinha Digital. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>
@@ -713,15 +607,10 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section
-      id={id}
-      className={tone === "muted" ? "bg-secondary/40 px-4 py-16" : "bg-background px-4 py-16"}
-    >
+    <section id={id} className={tone === "muted" ? "bg-secondary/40 px-4 py-16" : "bg-background px-4 py-16"}>
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title text-center">{title}</h2>
-        {subtitle ? (
-          <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">{subtitle}</p>
-        ) : null}
+        {subtitle ? <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">{subtitle}</p> : null}
         <div className="mt-10">{children}</div>
       </div>
     </section>
