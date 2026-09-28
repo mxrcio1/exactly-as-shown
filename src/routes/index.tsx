@@ -493,8 +493,12 @@ function Index() {
       {/* Bônus */}
       <Section id="bonus" title="Bônus que acompanham a Escolinha Digital" subtitle="Recursos extras para deixar suas aulas mais atrativas, dinâmicas e inclusivas.">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-3xl shadow-card">
-            <img src={bonusImg} alt="Moldes de EVA, medalhas e jogos inclusivos" loading="lazy" width={1200} height={800} className="w-full object-cover" />
+          <div className="grid grid-cols-2 gap-3">
+            {bonusList.map((b) => (
+              <div key={b.numero} className="overflow-hidden rounded-2xl shadow-card">
+                <img src={b.foto.url} alt={b.alt} loading="lazy" className="w-full object-cover" />
+              </div>
+            ))}
           </div>
           <div className="space-y-4">
             {bonusList.map((b) => (
