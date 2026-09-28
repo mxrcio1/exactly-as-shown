@@ -254,7 +254,7 @@ function Index() {
       </div>
 
       {/* Cabeçalho */}
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-border/70 bg-background backdrop-blur sm:bg-background/85">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <a href="#top" className="flex items-center gap-2">
             <img
@@ -280,8 +280,8 @@ function Index() {
       </header>
 
       {/* Hero — novo layout: imagem primeiro no mobile e à direita no desktop */}
-      <section id="top" className="bg-gradient-hero px-4 py-8 md:py-16">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 md:grid md:grid-cols-2 md:items-center md:gap-10">
+      <section id="top" className="bg-gradient-hero px-4 pt-6 pb-8 md:py-16">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 md:grid md:grid-cols-2 md:items-center md:gap-10">
           {/* IMAGEM: primeiro no mobile, à direita no desktop */}
           <div className="order-1 md:order-2">
             <img
@@ -324,30 +324,30 @@ function Index() {
             </ul>
 
             {/* prova social: avatares + 2.500 famílias */}
-            <div className="inline-flex w-fit items-center gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
-              <div className="flex -space-x-1.5">
-                {familiasImgs.map((imagem, index) => (
-                  <img
-                    key={imagem.url}
-                    src={imagem.url}
-                    alt={`Pessoa que usa a Escolinha Digital ${index + 1}`}
-                    width={64}
-                    height={64}
-                    className="size-8 rounded-full border-2 border-background object-cover"
-                  />
-                ))}
-              </div>
-              <div className="flex flex-col">
+            <div className="flex flex-col gap-2 rounded-2xl border border-border/60 bg-background px-4 py-3 sm:w-fit sm:flex-row sm:items-center sm:gap-3">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-1.5">
+                  {familiasImgs.map((imagem, index) => (
+                    <img
+                      key={imagem.url}
+                      src={imagem.url}
+                      alt={`Pessoa que usa a Escolinha Digital ${index + 1}`}
+                      width={64}
+                      height={64}
+                      className="size-8 shrink-0 rounded-full border-2 border-background object-cover"
+                    />
+                  ))}
+                </div>
                 <div className="flex items-center gap-1 text-sunny">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="size-4 fill-current" />
                   ))}
                 </div>
-                <span className="text-xs text-muted-foreground">
-                  <span className="font-semibold text-foreground">Mais de 2.500 famílias e professores</span>{" "}
-                  já usam a Escolinha
-                </span>
               </div>
+              <span className="text-xs text-muted-foreground">
+                <span className="font-semibold text-foreground">Mais de 2.500 famílias e professores</span>{" "}
+                já usam a Escolinha
+              </span>
             </div>
 
             <div className="flex flex-col gap-3 pt-1 sm:flex-row">
