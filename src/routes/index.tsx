@@ -221,11 +221,6 @@ const faq = [
     resposta:
       "Sim. Você tem 7 dias de garantia. Se o material não for para você, basta solicitar o reembolso dentro desse prazo.",
   },
-  {
-    pergunta: "As atividades substituem o acompanhamento profissional?",
-    resposta:
-      "Não. A Escolinha Digital é um material de apoio educativo e não substitui avaliação, terapia ou acompanhamento de profissionais de saúde e educação.",
-  },
 ];
 
 const depoimentos = [
