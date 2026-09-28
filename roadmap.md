@@ -1,2 +1,3 @@
-- [ ] Atualizar o projeto em escolinhadigitaal.lovable.app e confirmar que a página aparece.
-- [ ] Verificar imagens, navegação e compra em computador e celular; corrigir erros observados.
+- [x] Confirmar que a página aparece em escolinhadigitaal.lovable.app.
+- [x] Verificar imagens e navegação em computador e celular; corrigir o endereço do botão de compra na prévia.
+- [ ] Publicar a correção do botão de compra no endereço público — aguarda autorização de publicação.
