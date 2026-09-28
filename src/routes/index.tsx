@@ -220,9 +220,14 @@ const faq = [
 ];
 
 const depoimentos = [
-  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]" },
-  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]" },
-  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]" },
+  {
+    nome: "Renata Cavalcanti",
+    perfil: "Ubatuba, SP",
+    depoimento:
+      "Trabalho com educação especial há 8 anos e sempre perdi muito tempo adaptando material. Comprei sem muita esperança por ser barato demais e me surpreendi. Já usei com 3 alunos diferentes e todos responderam bem. Virou parte da minha rotina de sala.",
+  },
+  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]", depoimento: "[Depoimento real, com autorização]" },
+  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]", depoimento: "[Depoimento real, com autorização]" },
 ];
 
 function Index() {
@@ -532,7 +537,7 @@ function Index() {
           {depoimentos.map((d, i) => (
             <div key={i} className="rounded-3xl bg-card p-6 shadow-soft">
               <div className="flex gap-1 text-sunny">{Array.from({ length: 5 }).map((_, s) => <Star key={s} className="size-4 fill-current" />)}</div>
-              <p className="mt-3 text-muted-foreground">[Depoimento real, com autorização]</p>
+              <p className="mt-3 text-muted-foreground">{d.depoimento}</p>
               <div className="mt-4 flex items-center gap-3">
                 <span className="grid size-10 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">?</span>
                 <div className="text-sm"><p className="font-bold">{d.nome}</p><p className="text-muted-foreground">{d.perfil}</p></div>
