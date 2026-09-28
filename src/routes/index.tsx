@@ -213,10 +213,6 @@ const faq = [
       "Sim. Os materiais são desenvolvidos para apoiar o processo de ensino e aprendizagem, com atividades educativas e adaptadas para diferentes necessidades.",
   },
   {
-    pergunta: "O acesso é mensal ou vitalício?",
-    resposta: "O acesso é vitalício, com pagamento único. Não há mensalidade.",
-  },
-  {
     pergunta: "E se eu não gostar? Posso cancelar?",
     resposta:
       "Sim. Você tem 7 dias de garantia. Se o material não for para você, basta solicitar o reembolso dentro desse prazo.",
