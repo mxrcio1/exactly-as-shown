@@ -39,7 +39,10 @@ import depoimento2Img from "@/assets/depoimento-2.png.asset.json";
 import depoimento3Img from "@/assets/depoimento-3.png.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
-import bonusImg from "@/assets/bonus-kit.jpg";
+import bonus1Img from "@/assets/bonus-1-brincadeiras.png.asset.json";
+import bonus2Img from "@/assets/bonus-2-caderno.png.asset.json";
+import bonus3Img from "@/assets/bonus-3-megapacote.png.asset.json";
+import bonus4Img from "@/assets/bonus-4-jogos.png.asset.json";
 import rotinaImg from "@/assets/rotina.jpg";
 
 const TITLE = "Escolinha Digital | Atividades Educativas Adaptadas para Crianças com Autismo";
@@ -188,10 +191,10 @@ const inclusos = [
 ];
 
 const bonusList = [
-  { numero: 1, valor: "39,90", titulo: "101 Brincadeiras e Atividades para Crianças no TEA", descricao: "Ideias de brincadeiras e atividades para estimular o desenvolvimento de crianças no TEA." },
-  { numero: 2, valor: "19,90", titulo: "Caderno de Estímulos e Atividades Adaptadas", descricao: "Atividades adaptadas para trabalhar diferentes habilidades de forma prática e lúdica." },
-  { numero: 3, valor: "19,90", titulo: "Mega Pacote de 300 Atividades Especializadas", descricao: "Um grande pacote de atividades especializadas para ampliar suas opções de aplicação." },
-  { numero: 4, valor: "9,90", titulo: "Kit Jogos Educativos Adaptados", descricao: "Jogos educativos adaptados para aprender brincando e estimular diferentes habilidades." },
+  { numero: 1, valor: "39,90", foto: bonus1Img, alt: "Capa do bônus 101 Brincadeiras e Atividades para Crianças no TEA", titulo: "101 Brincadeiras e Atividades para Crianças no TEA", descricao: "Ideias de brincadeiras e atividades para estimular o desenvolvimento de crianças no TEA." },
+  { numero: 2, valor: "19,90", foto: bonus2Img, alt: "Capa do Caderno de Estímulos e Atividades Adaptadas", titulo: "Caderno de Estímulos e Atividades Adaptadas", descricao: "Atividades adaptadas para trabalhar diferentes habilidades de forma prática e lúdica." },
+  { numero: 3, valor: "19,90", foto: bonus3Img, alt: "Capa do Mega Pacote de 300 Atividades Especializadas", titulo: "Mega Pacote de 300 Atividades Especializadas", descricao: "Um grande pacote de atividades especializadas para ampliar suas opções de aplicação." },
+  { numero: 4, valor: "9,90", foto: bonus4Img, alt: "Capa do Kit Jogos Educativos Adaptados", titulo: "Kit Jogos Educativos Adaptados", descricao: "Jogos educativos adaptados para aprender brincando e estimular diferentes habilidades." },
 ];
 
 const itensOferta = [
@@ -490,8 +493,12 @@ function Index() {
       {/* Bônus */}
       <Section id="bonus" title="Bônus que acompanham a Escolinha Digital" subtitle="Recursos extras para deixar suas aulas mais atrativas, dinâmicas e inclusivas.">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-3xl shadow-card">
-            <img src={bonusImg} alt="Moldes de EVA, medalhas e jogos inclusivos" loading="lazy" width={1200} height={800} className="w-full object-cover" />
+          <div className="grid grid-cols-2 gap-3">
+            {bonusList.map((b) => (
+              <div key={b.numero} className="overflow-hidden rounded-2xl shadow-card">
+                <img src={b.foto.url} alt={b.alt} loading="lazy" className="w-full object-cover" />
+              </div>
+            ))}
           </div>
           <div className="space-y-4">
             {bonusList.map((b) => (
