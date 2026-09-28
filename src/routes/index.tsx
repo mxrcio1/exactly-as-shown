@@ -34,6 +34,9 @@ import familia2Img from "@/assets/familia-2.png.asset.json";
 import familia3Img from "@/assets/familia-3.png.asset.json";
 import familia4Img from "@/assets/familia-4.png.asset.json";
 import logoImg from "@/assets/logo-escolinha.png.asset.json";
+import depoimento1Img from "@/assets/depoimento-1.png.asset.json";
+import depoimento2Img from "@/assets/depoimento-2.png.asset.json";
+import depoimento3Img from "@/assets/depoimento-3.png.asset.json";
 import ofertaImg from "@/assets/oferta-mockup.jpg";
 import atividadesImg from "@/assets/atividades-preview.jpg";
 import bonusImg from "@/assets/bonus-kit.jpg";
@@ -220,11 +223,12 @@ const faq = [
 ];
 
 const depoimentos = [
-  { nome: "Ana Paula", perfil: "Belo Horizonte, MG", depoimento: "Gente, eu chorei quando vi meu filho fazendo as atividades sem reclamar. Ele tem 6 anos e autismo nível 2 e normalmente não para quieto. Com essas folhinhas ele ficou 20 minutos concentrado. 20 minutos!! Pra quem é mãe de autista sabe o quanto isso é grande." },
-  { nome: "Fernanda Silveira", perfil: "Chapecó, SC", depoimento: "Comprei na dúvida porque R$10 parecia suspeito de tão barato. Mas veio tudo certinho na hora. Minha filha de 7 anos ficou tão animada que ela mesma pediu pra fazer mais. Já imprimi umas 3 vezes a mesma folha porque ela quer repetir." },
+  { nome: "Ana Paula", perfil: "Belo Horizonte, MG", foto: depoimento1Img, depoimento: "Gente, eu chorei quando vi meu filho fazendo as atividades sem reclamar. Ele tem 6 anos e autismo nível 2 e normalmente não para quieto. Com essas folhinhas ele ficou 20 minutos concentrado. 20 minutos!! Pra quem é mãe de autista sabe o quanto isso é grande." },
+  { nome: "Fernanda Silveira", perfil: "Chapecó, SC", foto: depoimento2Img, depoimento: "Comprei na dúvida porque R$10 parecia suspeito de tão barato. Mas veio tudo certinho na hora. Minha filha de 7 anos ficou tão animada que ela mesma pediu pra fazer mais. Já imprimi umas 3 vezes a mesma folha porque ela quer repetir." },
   {
     nome: "Renata Cavalcanti",
     perfil: "Ubatuba, SP",
+    foto: depoimento3Img,
     depoimento:
       "Trabalho com educação especial há 8 anos e sempre perdi muito tempo adaptando material. Comprei sem muita esperança por ser barato demais e me surpreendi. Já usei com 3 alunos diferentes e todos responderam bem. Virou parte da minha rotina de sala.",
   },
@@ -539,7 +543,11 @@ function Index() {
               <div className="flex gap-1 text-sunny">{Array.from({ length: 5 }).map((_, s) => <Star key={s} className="size-4 fill-current" />)}</div>
               <p className="mt-3 text-muted-foreground">{d.depoimento}</p>
               <div className="mt-4 flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">?</span>
+                <img
+                  src={d.foto.url}
+                  alt={`Foto de ${d.nome}`}
+                  className="size-10 shrink-0 rounded-full object-cover ring-2 ring-secondary"
+                />
                 <div className="text-sm"><p className="font-bold">{d.nome}</p><p className="text-muted-foreground">{d.perfil}</p></div>
               </div>
             </div>
