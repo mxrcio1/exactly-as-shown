@@ -527,7 +527,7 @@ function Index() {
       </Section>
 
       {/* Depoimentos */}
-      <Section title="O que dizem quem já usa" tone="muted">
+      <Section title="Depoimentos reais sobre o kit Escolinha Digital" tone="muted">
         <div className="grid gap-5 md:grid-cols-3">
           {depoimentos.map((d, i) => (
             <div key={i} className="rounded-3xl bg-card p-6 shadow-soft">
