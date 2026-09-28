@@ -200,7 +200,7 @@ const faq = [
   },
   {
     pergunta: "Quantas atividades o kit tem?",
-    resposta: "São mais de 1.900 atividades organizadas por categorias, além dos bônus.",
+    resposta: "São mais de 1.900 atividades organizadas por categorias.",
   },
   {
     pergunta: "Posso usar em sala de aula e também em casa?",
