@@ -1,0 +1,2 @@
+- [ ] Atualizar o projeto em escolinhadigitaal.lovable.app e confirmar que a página aparece.
+- [ ] Verificar imagens, navegação e compra em computador e celular; corrigir erros observados.
