@@ -56,6 +56,14 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap",
+      },
+    ],
   }),
   component: Index,
 });
@@ -500,32 +508,80 @@ function Index() {
         </div>
       </Section>
 
-      {/* Oferta */}
-      <Section id="oferta" title="Leve a Escolinha Digital para a sua rotina" subtitle="Pagamento único, sem mensalidade." tone="muted">
-        <div className="mx-auto grid max-w-4xl gap-0 overflow-hidden rounded-3xl bg-card shadow-card md:grid-cols-2">
-          <img src={ofertaImg} alt="Kit Escolinha Digital Completo" loading="lazy" width={1200} height={912} className="h-full w-full object-cover" />
-          <div className="p-7">
-            <h3 className="font-display text-xl font-extrabold">Kit Escolinha Digital Completo</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              {itensOferta.map((i) => (
-                <li key={i} className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-accent" /><span>{i}</span></li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <p className="text-sm text-muted-foreground line-through">R$ 97,00</p>
-              <p className="font-display text-4xl font-extrabold text-primary">R$ 10,00</p>
-              <p className="text-sm text-muted-foreground">ou 4x de R$ 2,50</p>
-            </div>
-            <Button asChild variant="cta" size="xl" className="mt-6 w-full"><a href={cta}>Quero a Escolinha Digital</a></Button>
-            <p className="mt-3 text-center text-xs text-muted-foreground">Pagamento único. Acesso imediato e vitalício.</p>
-            <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs font-semibold text-muted-foreground">
-              <span className="flex items-center gap-1"><Lock className="size-3.5" /> Compra segura</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="size-3.5" /> Privacidade protegida</span>
-              <span className="flex items-center gap-1"><Star className="size-3.5" /> Garantia de 7 dias</span>
-            </div>
+      {/* Super Oferta */}
+      <section
+        id="oferta"
+        className="relative overflow-hidden bg-[linear-gradient(160deg,#1a7fe6_0%,#0F6BCB_50%,#0A3F8A_100%)] px-4 py-12 text-white sm:py-16"
+        style={{ fontFamily: "'Nunito', sans-serif" }}
+      >
+        <Star aria-hidden="true" className="pointer-events-none absolute left-5 top-8 size-9 rotate-12 fill-[#FFC20E] text-[#FFC20E] opacity-20 sm:left-10 sm:top-12" />
+        <Star aria-hidden="true" className="pointer-events-none absolute bottom-10 right-5 size-10 -rotate-12 fill-[#67C23A] text-[#67C23A] opacity-20 sm:right-10" />
+
+        <div className="relative mx-auto flex w-full max-w-[520px] flex-col items-center">
+          <div className="grid size-[170px] place-items-center rounded-full bg-white p-4 shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
+            <img
+              src={logoImg.url}
+              alt="Escolinha Digital"
+              width={170}
+              height={170}
+              className="size-full rounded-full object-contain"
+            />
+          </div>
+
+          <h2 className="mt-7 text-center text-5xl font-black tracking-tight text-white sm:text-6xl">
+            SUPER OFERTA
+          </h2>
+
+          <span className="mt-4 rounded-xl bg-[#D62828] px-5 py-2 text-sm font-black tracking-wide text-white shadow-[0_4px_0_rgba(0,0,0,0.18)]">
+            SOMENTE HOJE
+          </span>
+
+          <ul className="mt-7 w-full space-y-3.5">
+            {itensOferta.map((item) => {
+              const isBonus = item.startsWith("Bônus ");
+              const [prefix, ...rest] = item.split(":");
+              return (
+                <li key={item} className="flex items-start gap-3 text-[15px] font-extrabold leading-snug sm:text-base">
+                  <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[#67C23A] text-white shadow-sm">
+                    <Check className="size-4" strokeWidth={3} />
+                  </span>
+                  <span>
+                    {isBonus ? (
+                      <>
+                        <span className="font-black text-[#FFC20E]">{prefix}:</span>
+                        {rest.join(":")}
+                      </>
+                    ) : (
+                      item
+                    )}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-8 w-full rounded-[28px] bg-white px-6 py-7 text-center text-[#0A3F8A] shadow-[0_9px_0_rgba(0,0,0,0.20)] sm:px-8">
+            <p className="text-sm font-black tracking-wide">KIT ESCOLINHA DIGITAL COMPLETO</p>
+            <p className="mt-3 text-sm font-bold text-slate-500 line-through">De R$ 97,00</p>
+            <p className="mt-1 text-6xl font-black leading-none text-[#F85E0B] sm:text-7xl">R$ 10,00</p>
+            <p className="mt-3 text-base font-extrabold">ou 4x de R$ 2,50</p>
+            <p className="mt-2 text-xs font-bold text-slate-500">Pagamento único. Acesso imediato e vitalício.</p>
+          </div>
+
+          <a
+            href={cta}
+            className="mt-7 flex w-full items-center justify-center rounded-2xl bg-[#FFC20E] px-5 py-5 text-center text-base font-black leading-tight text-[#4A2B00] shadow-[0_7px_0_#B68A00] outline-none transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-[0_7px_0_#B68A00] active:translate-y-[3px] active:shadow-[0_3px_0_#B68A00] focus-visible:ring-4 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A3F8A] motion-reduce:transition-none sm:text-lg"
+          >
+            QUERO O KIT COMPLETO COM DESCONTO!
+          </a>
+
+          <div className="mt-6 flex w-full flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-bold text-white/90">
+            <span>🔒 Compra segura</span>
+            <span>🛡️ Privacidade</span>
+            <span>💳 Pagamento facilitado</span>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Garantia */}
       <Section title="Garantia incondicional de 7 dias">
