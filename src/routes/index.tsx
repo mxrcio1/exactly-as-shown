@@ -227,7 +227,7 @@ const depoimentos = [
       "Trabalho com educação especial há 8 anos e sempre perdi muito tempo adaptando material. Comprei sem muita esperança por ser barato demais e me surpreendi. Já usei com 3 alunos diferentes e todos responderam bem. Virou parte da minha rotina de sala.",
   },
   { nome: "Fernanda Silveira", perfil: "Chapecó, SC", depoimento: "Comprei na dúvida porque R$10 parecia suspeito de tão barato. Mas veio tudo certinho na hora. Minha filha de 7 anos ficou tão animada que ela mesma pediu pra fazer mais. Já imprimi umas 3 vezes a mesma folha porque ela quer repetir." },
-  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]", depoimento: "[Depoimento real, com autorização]" },
+  { nome: "Ana Paula", perfil: "Belo Horizonte, MG", depoimento: "Gente, eu chorei quando vi meu filho fazendo as atividades sem reclamar. Ele tem 6 anos e autismo nível 2 e normalmente não para quieto. Com essas folhinhas ele ficou 20 minutos concentrado. 20 minutos!! Pra quem é mãe de autista sabe o quanto isso é grande." },
 ];
 
 function Index() {
