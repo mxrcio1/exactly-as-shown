@@ -190,7 +190,6 @@ const itensOferta = [
   "Bônus 2: Caderno de Estímulos e Atividades Adaptadas",
   "Bônus 3: Mega Pacote de 300 Atividades Especializadas",
   "Bônus 4: Kit Jogos Educativos Adaptados",
-  "+ 8 bônus surpresa",
 ];
 
 const faq = [
