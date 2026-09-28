@@ -8,7 +8,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    prerender: { enabled: true },
+    prerender: { enabled: true, autoStaticPathsDiscovery: false },
     pages: [{ path: "/" }],
   },
 });
