@@ -226,7 +226,7 @@ const depoimentos = [
     depoimento:
       "Trabalho com educação especial há 8 anos e sempre perdi muito tempo adaptando material. Comprei sem muita esperança por ser barato demais e me surpreendi. Já usei com 3 alunos diferentes e todos responderam bem. Virou parte da minha rotina de sala.",
   },
-  { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]", depoimento: "[Depoimento real, com autorização]" },
+  { nome: "Fernanda Silveira", perfil: "Chapecó, SC", depoimento: "Comprei na dúvida porque R$10 parecia suspeito de tão barato. Mas veio tudo certinho na hora. Minha filha de 7 anos ficou tão animada que ela mesma pediu pra fazer mais. Já imprimi umas 3 vezes a mesma folha porque ela quer repetir." },
   { nome: "[Nome real]", perfil: "[Professora / Mãe / Terapeuta]", depoimento: "[Depoimento real, com autorização]" },
 ];
 
