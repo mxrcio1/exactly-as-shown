@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-Use TanStack Start's default server entry for publishing; the custom SSR wrapper returned an empty page on the published domain.
+Use TanStack Start's default server entry and prerender the public home page for publishing; the server-rendered published domain returned an empty body.
