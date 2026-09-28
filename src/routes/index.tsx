@@ -497,10 +497,6 @@ function Index() {
                 </div>
               </div>
             ))}
-            <div className="rounded-2xl border-2 border-dashed border-primary/40 p-5 text-center">
-              <h3 className="font-display font-extrabold">+ 8 bônus surpresa</h3>
-              <p className="text-sm text-muted-foreground">Liberados somente após a confirmação da compra.</p>
-            </div>
           </div>
         </div>
       </Section>
