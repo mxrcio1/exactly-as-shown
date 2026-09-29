@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/38wgku";
+const CHECKOUT_URL = "https://pay.cakto.com.br/38wgsku";
 const cta = CHECKOUT_URL || "#oferta";
 
 const familiasImgs = [familia1Img, familia2Img, familia3Img, familia4Img];

@@ -103,22 +103,6 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1652774796367215');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
       </head>
       <body>
         {children}
@@ -139,6 +123,34 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    type PixelFunction = ((...args: string[]) => void) & {
+      callMethod?: (...args: string[]) => void;
+      queue?: string[][];
+      loaded?: boolean;
+      version?: string;
+    };
+    const pixelWindow = window as Window & { fbq?: PixelFunction; _fbq?: PixelFunction };
+    if (pixelWindow.fbq) return;
+
+    const fbq: PixelFunction = (...args: string[]) => {
+      if (fbq.callMethod) fbq.callMethod(...args);
+      else fbq.queue?.push(args);
+    };
+    fbq.queue = [] as string[][];
+    fbq.loaded = true;
+    fbq.version = "2.0";
+    pixelWindow.fbq = fbq;
+    pixelWindow._fbq = fbq;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(script);
+    fbq("init", "1652774796367215");
+    fbq("track", "PageView");
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
