@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 Use TanStack Start's default server entry and prerender the public home page for publishing; the server-rendered published domain returned an empty body.
+
+Initialize Meta Pixel 1652774796367215 once in the root document so PageView tracking covers every page visit.
