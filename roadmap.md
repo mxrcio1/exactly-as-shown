@@ -1,3 +1,5 @@
 - [x] Confirmar que a página aparece em escolinhadigitaal.lovable.app.
 - [x] Verificar imagens e navegação em computador e celular; corrigir o endereço do botão de compra na prévia.
+- [x] Adicionar o Pixel da Meta 1652774796367215 e validar o evento PageView na prévia.
 - [ ] Publicar a correção do botão de compra no endereço público — aguarda autorização de publicação.
+- [ ] Publicar o Pixel da Meta no endereço público — aguarda autorização de publicação.
