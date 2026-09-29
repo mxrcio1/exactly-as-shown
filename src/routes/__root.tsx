@@ -125,18 +125,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   useEffect(() => {
-    const pixelWindow = window as typeof window & {
-      fbq?: ((...args: string[]) => void) & {
-        callMethod?: (...args: string[]) => void;
-        queue?: string[][];
-        loaded?: boolean;
-        version?: string;
-      };
-      _fbq?: typeof pixelWindow.fbq;
+    type PixelFunction = ((...args: string[]) => void) & {
+      callMethod?: (...args: string[]) => void;
+      queue?: string[][];
+      loaded?: boolean;
+      version?: string;
     };
+    const pixelWindow = window as Window & { fbq?: PixelFunction; _fbq?: PixelFunction };
     if (pixelWindow.fbq) return;
 
-    const fbq: NonNullable<typeof pixelWindow.fbq> = (...args: string[]) => {
+    const fbq: PixelFunction = (...args: string[]) => {
       if (fbq.callMethod) fbq.callMethod(...args);
       else fbq.queue?.push(args);
     };
