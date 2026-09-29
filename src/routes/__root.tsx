@@ -136,7 +136,7 @@ function RootComponent() {
     };
     if (pixelWindow.fbq) return;
 
-    const fbq = (...args: string[]) => {
+    const fbq: NonNullable<typeof pixelWindow.fbq> = (...args: string[]) => {
       if (fbq.callMethod) fbq.callMethod(...args);
       else fbq.queue?.push(args);
     };
