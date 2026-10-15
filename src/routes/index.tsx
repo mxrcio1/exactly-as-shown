@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -246,6 +247,24 @@ const depoimentos = [
 ];
 
 function Index() {
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById("top");
+    const offer = document.getElementById("oferta");
+    if (!hero || !offer) return;
+    const update = () => {
+      const heroPassed = hero.getBoundingClientRect().bottom < 0;
+      const rect = offer.getBoundingClientRect();
+      setShowStickyCta(heroPassed && !(rect.top < window.innerHeight && rect.bottom > 0));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Barra de topo */}
@@ -254,7 +273,7 @@ function Index() {
       </div>
 
       {/* Cabeçalho */}
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background backdrop-blur sm:bg-background/85">
+      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 shadow-sm backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <a href="#top" className="flex items-center gap-2">
             <img
@@ -273,7 +292,7 @@ function Index() {
               </a>
             ))}
           </nav>
-          <Button asChild variant="cta" className="rounded-full">
+          <Button asChild variant="cta" className="min-h-12 rounded-full px-5 font-extrabold shadow-soft">
             <a href="#oferta">Garantir acesso</a>
           </Button>
         </div>
@@ -490,29 +509,20 @@ function Index() {
         </div>
       </Section>
 
-      {/* Bônus */}
+       {/* Bônus */}
       <Section id="bonus" title="Bônus que acompanham a Escolinha Digital" subtitle="Recursos extras para deixar suas aulas mais atrativas, dinâmicas e inclusivas.">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="grid grid-cols-2 gap-3">
-            {bonusList.map((b) => (
-              <div key={b.numero} className="overflow-hidden rounded-2xl shadow-card">
-                <img src={b.foto.url} alt={b.alt} loading="lazy" className="w-full object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="space-y-4">
-            {bonusList.map((b) => (
-              <div key={b.numero} className="flex gap-4 rounded-2xl bg-card p-5 shadow-soft">
-                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sunny font-display font-extrabold text-sunny-foreground">{b.numero}</span>
-                <div>
-                  <h3 className="font-bold">{b.titulo}</h3>
-                  <p className="text-sm text-muted-foreground">{b.descricao}</p>
-                  <p className="mt-1 text-sm">de <span className="text-muted-foreground line-through">R$ {b.valor}</span> por <span className="font-extrabold text-accent">GRÁTIS</span></p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {bonusList.map((b) => (
+            <article key={b.numero} className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-4 shadow-soft transition-transform duration-200 hover:-translate-y-1">
+              <span className="absolute right-3 top-3 z-10 rounded-full bg-emerald-600 px-3 py-1 text-xs font-black tracking-wide text-white shadow-md">GRÁTIS</span>
+              <div className="overflow-hidden rounded-2xl bg-secondary/40"><img src={b.foto.url} alt={b.alt} loading="lazy" width={600} height={800} className="aspect-[4/5] w-full object-contain" /></div>
+              <h3 className="mt-4 font-extrabold leading-snug">{b.titulo}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.descricao}</p>
+              <p className="mt-3 text-sm">De <span className="text-muted-foreground line-through">R$ {b.valor}</span> por <span className="font-extrabold text-emerald-700">R$ 0,00</span></p>
+            </article>
+          ))}
         </div>
+        <p className="mt-7 text-center text-base font-extrabold text-muted-foreground">Valor dos bônus: <span className="line-through">R$ 89,60</span> · hoje incluídos no kit</p>
       </Section>
 
       {/* Super Oferta */}
@@ -600,20 +610,19 @@ function Index() {
 
       {/* Depoimentos */}
       <Section title="Depoimentos reais sobre o kit Escolinha Digital" tone="muted">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
           {depoimentos.map((d, i) => (
-            <div key={i} className="rounded-3xl bg-card p-6 shadow-soft">
-              <div className="flex gap-1 text-sunny">{Array.from({ length: 5 }).map((_, s) => <Star key={s} className="size-4 fill-current" />)}</div>
-              <p className="mt-3 text-muted-foreground">{d.depoimento}</p>
-              <div className="mt-4 flex items-center gap-3">
-                <img
-                  src={d.foto.url}
-                  alt={`Foto de ${d.nome}`}
-                  className="size-10 shrink-0 rounded-full object-cover ring-2 ring-secondary"
-                />
-                <div className="text-sm"><p className="font-bold">{d.nome}</p><p className="text-muted-foreground">{d.perfil}</p></div>
+            <article key={i} className="w-[86%] shrink-0 snap-center rounded-3xl border border-border/70 bg-card p-6 shadow-soft sm:w-[70%] md:w-auto">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex gap-1 text-[#E6A817]" aria-label="5 estrelas">{Array.from({ length: 5 }).map((_, s) => <Star key={s} className="size-4 fill-current" />)}</div>
+                <span className="text-xs font-bold text-muted-foreground">Depoimento {i + 1} de 3</span>
               </div>
-            </div>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{d.depoimento}</p>
+              <div className="mt-5 flex items-center gap-3 border-t border-border/70 pt-4">
+                <img src={d.foto.url} alt={`Foto de ${d.nome}`} width={48} height={48} loading="lazy" className="size-12 shrink-0 rounded-full object-cover ring-2 ring-secondary" />
+                <div className="text-sm"><p className="font-extrabold">{d.nome}</p><p className="text-muted-foreground">{d.perfil}</p></div>
+              </div>
+            </article>
           ))}
         </div>
       </Section>
@@ -621,7 +630,7 @@ function Index() {
       {/* FAQ */}
       <Section id="duvidas" title="Perguntas frequentes">
         <div className="mx-auto max-w-3xl rounded-3xl bg-card p-4 shadow-soft sm:p-8">
-          <Accordion type="single" collapsible>
+          <Accordion type="single" collapsible defaultValue="item-0">
             {faq.map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
                 <AccordionTrigger className="text-left font-display font-bold">{f.pergunta}</AccordionTrigger>
@@ -641,8 +650,13 @@ function Index() {
         </div>
       </section>
 
+      {/* Barra fixa de compra no mobile */}
+      <div className={`fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-white/95 p-3 shadow-[0_-8px_28px_rgba(15,23,42,0.14)] backdrop-blur-md transition-transform duration-300 md:hidden ${showStickyCta ? "translate-y-0" : "translate-y-full pointer-events-none"}`}>
+        <a href="#oferta" className="flex min-h-12 items-center justify-center rounded-xl bg-[#18A957] px-4 py-3 text-center text-base font-extrabold text-white shadow-[0_4px_0_#08763A] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-primary">Quero o kit completo – R$ 10</a>
+      </div>
+
       {/* Rodapé */}
-      <footer className="border-t border-border bg-background px-4 py-10">
+      <footer className="border-t border-border bg-background px-4 py-10 pb-24 md:pb-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center">
           <p className="font-display text-lg font-extrabold">Escolinha Digital</p>
           <p className="text-sm text-muted-foreground">Aprender brincando, no ritmo de cada criança.</p>
@@ -652,6 +666,8 @@ function Index() {
         </div>
       </footer>
     </div>
+  );
+}</div>
   );
 }
 
