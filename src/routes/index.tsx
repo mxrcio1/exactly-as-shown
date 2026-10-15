@@ -292,7 +292,7 @@ function Index() {
               </a>
             ))}
           </nav>
-          <Button asChild variant="cta" className="min-h-12 rounded-full px-5 font-extrabold shadow-soft">
+          <Button asChild variant="cta" className="min-h-12 rounded-full bg-[#18A957] px-5 font-extrabold text-white shadow-soft hover:bg-[#128B47]">
             <a href="#oferta">Garantir acesso</a>
           </Button>
         </div>
@@ -356,7 +356,7 @@ function Index() {
             </div>
 
             <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row sm:items-center">
-              <Button asChild variant="hero" size="xl" className="min-h-12 w-full rounded-2xl px-7 text-base font-extrabold shadow-cta sm:w-auto">
+              <Button asChild variant="hero" size="xl" className="min-h-12 w-full rounded-2xl bg-[#18A957] px-7 text-base font-extrabold text-white shadow-cta hover:bg-[#128B47] sm:w-auto">
                 <a href="#oferta">Quero garantir meu acesso</a>
               </Button>
               <a href="#atividades" className="inline-flex min-h-12 items-center gap-2 px-2 text-sm font-bold text-primary underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
@@ -632,7 +632,7 @@ function Index() {
         <div className="mx-auto max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Sua próxima atividade está a um clique de distância</h2>
           <p className="mt-4 opacity-90">Junte-se à Escolinha Digital e tenha um acervo pronto para tornar a rotina mais leve e o aprendizado mais inclusivo.</p>
-          <Button asChild size="xl" variant="soft" className="mt-8"><a href={cta}>Quero a Escolinha Digital</a></Button>
+          <Button asChild size="xl" variant="soft" className="mt-8 min-h-12 rounded-2xl bg-[#18A957] px-7 font-extrabold text-white hover:bg-[#128B47]"><a href={cta}>Quero a Escolinha Digital</a></Button>
         </div>
       </section>
 
