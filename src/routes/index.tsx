@@ -345,44 +345,28 @@ function Index() {
             {/* prova social: avatares + 2.500 famílias */}
             <div className="flex flex-col gap-2 rounded-2xl border border-border/60 bg-background px-4 py-3 sm:w-fit sm:flex-row sm:items-center sm:gap-3">
               <div className="flex items-center gap-3">
-                <div className="flex -space-x-1.5">
-                  {familiasImgs.map((imagem, index) => (
-                    <img
-                      key={imagem.url}
-                      src={imagem.url}
-                      alt={`Pessoa que usa a Escolinha Digital ${index + 1}`}
-                      width={64}
-                      height={64}
-                      className="size-8 shrink-0 rounded-full border-2 border-background object-cover"
-                    />
-                  ))}
-                </div>
+                
                 <div className="flex items-center gap-1 text-sunny">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="size-4 fill-current" />
                   ))}
                 </div>
               </div>
-              <span className="text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground">Mais de 2.500 famílias e professores</span>{" "}
-                já usam a Escolinha
-              </span>
+              <span className="text-sm text-muted-foreground"><span className="font-extrabold text-foreground">+2.500 famílias e professores já usam</span></span>
             </div>
 
-            <div className="flex flex-col gap-3 pt-1 sm:flex-row">
-              <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+            <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row sm:items-center">
+              <Button asChild variant="hero" size="xl" className="min-h-12 w-full rounded-2xl px-7 text-base font-extrabold shadow-cta sm:w-auto">
                 <a href="#oferta">Quero garantir meu acesso</a>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="xl"
-                className="w-full rounded-full border-primary/30 text-primary hover:bg-primary/5 hover:text-primary sm:w-auto"
-              >
-                <a href="#atividades" className="gap-2">
-                  ver as atividades <ChevronDown className="size-4" />
-                </a>
-              </Button>
+              <a href="#atividades" className="inline-flex min-h-12 items-center gap-2 px-2 text-sm font-bold text-primary underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+                ver as atividades <ChevronDown className="size-4" />
+              </a>
+            </div>
+            <p className="text-3xl font-black tracking-tight text-primary">R$ 10,00 <span className="text-sm font-semibold text-muted-foreground">· acesso ao kit completo</span></p>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-muted-foreground">
+              <span><Lock className="mr-1 inline size-3.5" /> Compra segura</span>
+              <span><ShieldCheck className="mr-1 inline size-3.5" /> Garantia de 7 dias</span>
             </div>
           </div>
         </div>
@@ -451,16 +435,18 @@ function Index() {
 
       {/* Galeria */}
       <Section id="atividades" title="Espie algumas páginas do material" subtitle="Mais de 1.900 atividades como essas, organizadas por categoria" tone="muted">
-        <div id="paginas" className="scroll-mt-24 overflow-hidden rounded-3xl shadow-card">
-          <img
-            src={atividadesImg}
-            alt="Páginas de atividades infantis em português: Cubra os Tracejados, Conte e Escreva, Ligue as Formas e Vamos Contar até 10"
-            loading="lazy"
-            width={1200}
-            height={800}
-            className="w-full object-cover"
-          />
+        <div id="paginas" className="scroll-mt-24 overflow-hidden rounded-3xl border border-border/70 bg-white p-2 shadow-card sm:p-4">
+          <button type="button" onClick={() => setPreviewOpen(true)} className="group block w-full cursor-zoom-in rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-primary" aria-label="Ampliar prévia das atividades">
+            <img src={atividadesImg} alt="Páginas de atividades infantis em português: Cubra os Tracejados, Conte e Escreva, Ligue as Formas e Vamos Contar até 10" loading="lazy" width={1200} height={800} className="h-auto max-h-[620px] w-full rounded-2xl object-contain transition-transform duration-300 group-hover:scale-[1.01]" />
+            <span className="mt-2 block text-center text-sm font-bold text-primary">Toque para ampliar a prévia</span>
+          </button>
         </div>
+        {previewOpen && (
+          <div role="dialog" aria-modal="true" aria-label="Prévia ampliada das atividades" className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-3 sm:p-8" onClick={() => setPreviewOpen(false)}>
+            <button type="button" className="absolute right-4 top-4 grid size-12 place-items-center rounded-full bg-white text-slate-900 shadow-lg" onClick={() => setPreviewOpen(false)} aria-label="Fechar prévia"><span className="text-2xl">×</span></button>
+            <img src={atividadesImg} alt="Prévia ampliada das páginas de atividades" width={1200} height={800} loading="lazy" className="max-h-[88vh] w-auto max-w-full rounded-xl object-contain" onClick={(event) => event.stopPropagation()} />
+          </div>
+        )}
         <div className="mt-14 rounded-3xl bg-secondary/60 px-4 py-8">
           <div className="flex flex-wrap justify-center gap-3">
             {galeria.map((g) => (
@@ -587,7 +573,7 @@ function Index() {
 
           <a
             href={cta}
-            className="mt-7 flex w-full items-center justify-center rounded-2xl bg-[#FFC20E] px-5 py-5 text-center text-base font-black leading-tight text-[#4A2B00] shadow-[0_7px_0_#B68A00] outline-none transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-[0_7px_0_#B68A00] active:translate-y-[3px] active:shadow-[0_3px_0_#B68A00] focus-visible:ring-4 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A3F8A] motion-reduce:transition-none sm:text-lg"
+            className="mt-7 flex min-h-12 w-full items-center justify-center rounded-2xl bg-[#18A957] px-5 py-4 text-center text-base font-black leading-tight text-white shadow-[0_6px_0_#08763A] outline-none transition-transform duration-150 hover:-translate-y-0.5 hover:bg-[#128B47] active:translate-y-[2px] focus-visible:ring-4 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A3F8A] motion-reduce:transition-none sm:text-lg"
           >
             QUERO O KIT COMPLETO COM DESCONTO!
           </a>
@@ -685,7 +671,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className={tone === "muted" ? "bg-secondary/40 px-4 py-16" : "bg-background px-4 py-16"}>
+    <section id={id} className={tone === "muted" ? "bg-secondary/50 px-4 py-16 sm:py-20" : "bg-background px-4 py-16 sm:py-20"}>
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title text-center">{title}</h2>
         {subtitle ? <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">{subtitle}</p> : null}
