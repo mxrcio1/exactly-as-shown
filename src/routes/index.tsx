@@ -30,10 +30,6 @@ import {
   Target,
 } from "lucide-react";
 import heroImg from "@/assets/hero-escolinha.jpg.asset.json";
-import familia1Img from "@/assets/familia-1.png.asset.json";
-import familia2Img from "@/assets/familia-2.png.asset.json";
-import familia3Img from "@/assets/familia-3.png.asset.json";
-import familia4Img from "@/assets/familia-4.png.asset.json";
 import logoImg from "@/assets/logo-escolinha.png.asset.json";
 import depoimento1Img from "@/assets/depoimento-1.png.asset.json";
 import depoimento2Img from "@/assets/depoimento-2.png.asset.json";
@@ -75,7 +71,6 @@ export const Route = createFileRoute("/")({
 const CHECKOUT_URL = "https://pay.cakto.com.br/38wgsku";
 const cta = CHECKOUT_URL || "#oferta";
 
-const familiasImgs = [familia1Img, familia2Img, familia3Img, familia4Img];
 
 const menu = [
   { rotulo: "Para quem é", ancora: "#para-quem-e" },
@@ -563,10 +558,11 @@ function Index() {
             })}
           </ul>
 
-          <div className="mt-8 w-full rounded-[28px] bg-white px-6 py-7 text-center text-[#0A3F8A] shadow-[0_9px_0_rgba(0,0,0,0.20)] sm:px-8">
+          <div className="mt-8 w-full rounded-[28px] border-4 border-white/80 bg-white px-6 py-7 text-center text-[#0A3F8A] shadow-[0_18px_50px_rgba(0,0,0,0.20)] sm:px-8">
+            <span className="mb-3 inline-flex rounded-full bg-blue-50 px-4 py-1.5 text-xs font-black uppercase tracking-wide text-blue-800 ring-1 ring-blue-100">Oferta de lançamento</span>
             <p className="text-sm font-black tracking-wide">KIT ESCOLINHA DIGITAL COMPLETO</p>
             <p className="mt-3 text-sm font-bold text-slate-500 line-through">De R$ 97,00</p>
-            <p className="mt-1 text-6xl font-black leading-none text-[#F85E0B] sm:text-7xl">R$ 10,00</p>
+            <p className="mt-1 text-6xl font-black leading-none text-[#0A3F8A] sm:text-7xl">R$ 10,00</p>
             <p className="mt-3 text-base font-extrabold">ou 4x de R$ 2,50</p>
             <p className="mt-2 text-xs font-bold text-slate-500">Pagamento único. Acesso imediato e vitalício.</p>
           </div>
